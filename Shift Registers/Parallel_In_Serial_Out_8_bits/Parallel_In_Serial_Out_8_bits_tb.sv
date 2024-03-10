@@ -4,6 +4,8 @@ Testbench file to test the functionality of the Parallel-In-Serial-Out (PISO) Sh
 Author - Prasad Narayan Ghatol
 */
 
+`timescale 1ns/1ps
+
 module Parallel_In_Serial_Out_8_bits_tb();
 
 reg Clk_In;
@@ -38,6 +40,11 @@ initial
     end
 
 
+initial
+    begin
+        $monitor("[%0t] : Parallel_Data_In = %8b , Serial_Data_Out : %1b", $time, Parallel_Data_In, Serial_Data_Out);
+    end
+
 // Testbench Inputs
 initial
     begin
@@ -48,7 +55,7 @@ initial
 
 
         // Apply the Test Data
-        Parallel_Data_In = 8'h6D;
+        Parallel_Data_In = $random;
         Load_Shiftb_In = 1'b1;
 
         #10;
@@ -57,7 +64,7 @@ initial
 
         #50;
 
-        Parallel_Data_In = 8'hA1;
+        Parallel_Data_In = $random;
         Load_Shiftb_In = 1'b1;
 
         #10;

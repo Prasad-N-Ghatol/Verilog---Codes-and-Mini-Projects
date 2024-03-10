@@ -4,6 +4,8 @@ Testbench file to test the functionality of the Serial-In-Serial-Out (SISO) Shif
 Author - Prasad Narayan Ghatol
 */
 
+`timescale 1ns/1ps
+
 module Serial_In_Serial_Out_8_bits_tb();
 
 reg Clk_In;
@@ -36,6 +38,11 @@ initial
     end
 
 
+initial
+    begin
+        $monitor("[%0t] : Serial_Data_In = %1b , Serial_Data_Out : %1b", $time, Serial_Data_In, Serial_Data_Out);
+    end
+
 // Testbench Inputs
 initial
     begin
@@ -46,20 +53,10 @@ initial
 
 
         // Apply the Test Data
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b1; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b0; #10;
-        Serial_Data_In = 1'b0; #10;
+        repeat (15)
+            begin
+                Serial_Data_In = $random; #10;
+            end
         
         // Stop the Simulation
         $stop;
