@@ -7,13 +7,13 @@ Author - Prasad Narayan Ghatol
 */
 
 module DEMUX_1_4 (
-    input Enable_In,        // Enable Line to enable the DEMUX Circuit.
-    input Data_In,          // Data Input to the DEMUX.
+    input       Enable_In,  // Enable Line to enable the DEMUX Circuit.
+    input       Data_In,    // Data Input to the DEMUX.
     input [1:0] Select_In,  // Select_In Line, to select the Output Data Line.
-    output Data_0_Out,
-    output Data_1_Out,
-    output Data_2_Out,
-    output Data_3_Out
+    output      Data_0_Out,
+    output      Data_1_Out,
+    output      Data_2_Out,
+    output      Data_3_Out
 );
 
 reg Data_0_Wire;
