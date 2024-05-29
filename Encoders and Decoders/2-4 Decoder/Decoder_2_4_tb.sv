@@ -15,10 +15,10 @@ module Decoder_2_4_tb ();
 reg        Reset_In;
 
 reg  [1:0] Encoded_Value_In;
-wire       Data_A_Out;
-wire       Data_B_Out;
-wire       Data_C_Out;
-wire       Data_D_Out;
+wire       Data_0_Out;
+wire       Data_1_Out;
+wire       Data_2_Out;
+wire       Data_3_Out;
 
 
 
@@ -28,10 +28,10 @@ wire       Data_D_Out;
 Decoder_2_4 DUT (
     .Reset_In(Reset_In),
     .Encoded_Value_In(Encoded_Value_In),
-    .Data_A_Out(Data_A_Out),
-    .Data_B_Out(Data_B_Out),
-    .Data_C_Out(Data_C_Out),
-    .Data_D_Out(Data_D_Out)
+    .Data_0_Out(Data_0_Out),
+    .Data_1_Out(Data_1_Out),
+    .Data_2_Out(Data_2_Out),
+    .Data_3_Out(Data_3_Out)
 );
 
 

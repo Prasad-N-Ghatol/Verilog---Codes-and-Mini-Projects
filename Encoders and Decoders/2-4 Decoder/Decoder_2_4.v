@@ -12,10 +12,10 @@ module Decoder_2_4 (
     input        Reset_In,
 
     input  [1:0] Encoded_Value_In,
-    output       Data_A_Out,
-    output       Data_B_Out,
-    output       Data_C_Out,
-    output       Data_D_Out
+    output       Data_0_Out,
+    output       Data_1_Out,
+    output       Data_2_Out,
+    output       Data_3_Out
 );
 
 
@@ -30,10 +30,10 @@ reg [3:0] Decoded_Value;
 // --------------------------------------------------
 // Assignments
 // --------------------------------------------------
-assign Data_A_Out = Decoded_Value[3];
-assign Data_B_Out = Decoded_Value[2];
-assign Data_C_Out = Decoded_Value[1];
-assign Data_D_Out = Decoded_Value[0];
+assign Data_0_Out = Decoded_Value[0];
+assign Data_1_Out = Decoded_Value[1];
+assign Data_2_Out = Decoded_Value[2];
+assign Data_3_Out = Decoded_Value[3];
 
 
 
@@ -44,30 +44,30 @@ always @ (*)
     begin
         if (Reset_In)
             begin
-                Decoded_Value <= 4'b0000;
+                Decoded_Value <= 4'h0;
             end
         else
             begin
                 case (Encoded_Value_In)
-                    2'b00 : // Data A
+                    2'b00 : // Data 0
                         begin
-                            Decoded_Value <= 4'b1000;
+                            Decoded_Value <= 4'h1;
                         end
-                    2'b01 : // Data B
+                    2'b01 : // Data 1
                         begin
-                            Decoded_Value <= 4'b0100;
+                            Decoded_Value <= 4'h2;
                         end
-                    2'b10 : // Data C
+                    2'b10 : // Data 2
                         begin
-                            Decoded_Value <= 4'b0010;
+                            Decoded_Value <= 4'h4;
                         end
-                    2'b11 : // Data D
+                    2'b11 : // Data 3
                         begin
-                            Decoded_Value <= 4'b0001;
+                            Decoded_Value <= 4'h8;
                         end
                     default: 
                         begin
-                            Decoded_Value <= 4'b0000;
+                            Decoded_Value <= 4'h0;
                         end
                 endcase
             end
