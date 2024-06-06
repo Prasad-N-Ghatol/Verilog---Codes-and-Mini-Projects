@@ -21,8 +21,7 @@ module Multiplier_2_Bit (
 // wires and regs
 // --------------------------------------------------
 // Sub-Products
-wire [3:0] Sub_Product_0;
-wire [3:0] Sub_Product_1;
+wire [3:0] Sub_Products [1:0];
 
 
 // Additions
@@ -33,15 +32,15 @@ wire [3:0] Addition_0;
 // --------------------------------------------------
 // Sub-Products
 // --------------------------------------------------
-assign Sub_Product_0 = Data_B_In[0] ? (Data_A_In)      : 4'b0;
-assign Sub_Product_1 = Data_B_In[1] ? (Data_A_In << 1) : 4'b0;
+assign Sub_Products[0] = Data_B_In[0] ? (Data_A_In)      : 2'b0;
+assign Sub_Products[1] = Data_B_In[1] ? (Data_A_In << 1) : 2'b0;
 
 
 
 // --------------------------------------------------
 // Adders
 // --------------------------------------------------
-assign Addition_0 = Sub_Product_0 + Sub_Product_1;
+assign Addition_0 = Sub_Products[0] + Sub_Products[1];
 
 
 
