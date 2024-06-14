@@ -1,29 +1,45 @@
 /*
-Testbench file to test the implementation of the 1:4 DEMUX.
+SystemVerilog Testbench for the 1:8 DEMUX.
 
-Author - Prasad Narayan Ghatol
+
+
+Author : Prasad Narayan Ghatol
 */
+`timescale 1ns/1ps
+
+
 
 module DEMUX_1_8_tb ();
 
-reg         Enable_In;
-reg         Data_In;
-reg [2:0]   Select_In;
 
-wire Data_0_Out;
-wire Data_1_Out;
-wire Data_2_Out;
-wire Data_3_Out;
-wire Data_4_Out;
-wire Data_5_Out;
-wire Data_6_Out;
-wire Data_7_Out;
 
-// DUT Instantiation
+reg        Enable_In;
+
+reg        Data_In;
+
+reg  [2:0] Select_In;
+
+wire       Data_0_Out;
+wire       Data_1_Out;
+wire       Data_2_Out;
+wire       Data_3_Out;
+wire       Data_4_Out;
+wire       Data_5_Out;
+wire       Data_6_Out;
+wire       Data_7_Out;
+
+
+
+// --------------------------------------------------
+// 1:8 DEMUX DUT Instantiation
+// --------------------------------------------------
 DEMUX_1_8 DUT (
     .Enable_In(Enable_In),
+
     .Data_In(Data_In),
+
     .Select_In(Select_In),
+
     .Data_0_Out(Data_0_Out),
     .Data_1_Out(Data_1_Out),
     .Data_2_Out(Data_2_Out),
@@ -34,21 +50,28 @@ DEMUX_1_8 DUT (
     .Data_7_Out(Data_7_Out)
 );
 
+
+
+// --------------------------------------------------
 // Testbench Logic
+// --------------------------------------------------
 initial
     begin
         Enable_In = 1'b0;
-        Data_In = 1'b0;
-        Select_In = 3'b0;
         #10;
-        
-        repeat (10)
+        Enable_In = 1'b1;
+
+        repeat(20)
             begin
-                Enable_In = 1'b1;
                 Data_In = $random;
+                
                 Select_In = $random;
                 #10;
             end
+
+        $stop;
     end
+
+
 
 endmodule

@@ -24,8 +24,8 @@ module DEMUX_1_2 (
 // --------------------------------------------------
 // 1:2 DEMUX Logic
 // --------------------------------------------------
-assign Data_0_Out = Enable_In ? ((Select_In == 1'h0) ? Data_In : 1'b0) : 1'bZ;
-assign Data_1_Out = Enable_In ? ((Select_In == 1'h1) ? Data_In : 1'b0) : 1'bZ;
+assign Data_0_Out = Enable_In ? ((Select_In == 1'd0) ? Data_In : 1'b0) : 1'bZ;
+assign Data_1_Out = Enable_In ? ((Select_In == 1'd1) ? Data_In : 1'b0) : 1'bZ;
 
 
 
