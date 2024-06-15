@@ -1,5 +1,5 @@
 /*
-SystemVerilog Testbench for the 8-Bit LIFO (Stack).
+SystemVerilog Testbench for the 32-Bit LIFO (Stack).
 
 
 
@@ -8,28 +8,28 @@ Author : Prasad Narayan Ghatol
 
 
 
-module LIFO_Stack_8_Bit_tb ();
+module LIFO_Stack_32_Bit_tb ();
 
 
 
-reg        Clk_In;
-reg        Reset_In;
+reg         Clk_In;
+reg         Reset_In;
 
-reg  [7:0] Data_In;
-wire [7:0] Data_Out;
-reg        Push_In;
-reg        Pop_In;
-reg        Peek_In;
+reg  [31:0] Data_In;
+wire [31:0] Data_Out;
+reg         Push_In;
+reg         Pop_In;
+reg         Peek_In;
 
-wire       LIFO_Empty;
-wire       LIFO_Full;
+wire        LIFO_Empty;
+wire        LIFO_Full;
 
 
 
 // --------------------------------------------------
 // LIFO DUT Instantiation
 // --------------------------------------------------
-LIFO_Stack_8_Bit DUT (
+LIFO_Stack_32_Bit DUT (
     .Clk_In(Clk_In),
     .Reset_In(Reset_In),
 

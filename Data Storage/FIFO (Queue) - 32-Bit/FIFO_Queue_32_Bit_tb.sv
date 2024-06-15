@@ -1,5 +1,5 @@
 /*
-SystemVerilog Testbench for the 8-Bit FIFO (Queue).
+SystemVerilog Testbench for the 32-Bit FIFO (Queue).
 
 
 
@@ -8,27 +8,27 @@ Author : Prasad Narayan Ghatol
 
 
 
-module FIFO_Queue_8_Bit_tb ();
+module FIFO_Queue_32_Bit_tb ();
 
 
 
-reg        Clk_In;
-reg        Reset_In;
+reg         Clk_In;
+reg         Reset_In;
 
-reg  [7:0] Data_In;
-wire [7:0] Data_Out;
-reg        Write_Enable_In;
-reg        Read_Enable_In;
+reg  [31:0] Data_In;
+wire [31:0] Data_Out;
+reg         Write_Enable_In;
+reg         Read_Enable_In;
 
-wire       FIFO_Empty;
-wire       FIFO_Full;
+wire        FIFO_Empty;
+wire        FIFO_Full;
 
 
 
 // --------------------------------------------------
 // FIFO DUT Instantiation
 // --------------------------------------------------
-FIFO_Queue_8_Bit DUT (
+FIFO_Queue_32_Bit DUT (
     .Clk_In(Clk_In),
     .Reset_In(Reset_In),
 

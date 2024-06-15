@@ -1,5 +1,5 @@
 /*
-Verilog Code, to implement a 8-Bit FIFO (Queue).
+Verilog Code, to implement a 16-Bit FIFO (Queue).
 
 
 
@@ -8,17 +8,17 @@ Author : Prasad Narayan Ghatol
 
 
 
-module FIFO_Queue_8_Bit (
-    input            Clk_In,
-    input            Reset_In,
+module FIFO_Queue_16_Bit (
+    input             Clk_In,
+    input             Reset_In,
 
-    input      [7:0] Data_In,
-    output reg [7:0] Data_Out,
-    input            Write_Enable_In,
-    input            Read_Enable_In,
+    input      [15:0] Data_In,
+    output reg [15:0] Data_Out,
+    input             Write_Enable_In,
+    input             Read_Enable_In,
 
-    output           FIFO_Empty,
-    output           FIFO_Full
+    output            FIFO_Empty,
+    output            FIFO_Full
 );
 
 
@@ -34,7 +34,7 @@ reg [3:0] Read_Pointer;
 // --------------------------------------------------
 // FIFO Memory
 // --------------------------------------------------
-reg [7:0] FIFO_MEMORY [7:0];
+reg [15:0] FIFO_MEMORY [7:0];
 
 
 
@@ -75,7 +75,7 @@ always @ (negedge Clk_In or posedge Reset_In)
         if (Reset_In)
             begin
                 Read_Pointer <= 4'b0;
-                Data_Out <= 8'bZ;
+                Data_Out <= 16'bZ;
             end
         else if (Read_Enable_In && ~FIFO_Empty)
             begin
@@ -85,7 +85,7 @@ always @ (negedge Clk_In or posedge Reset_In)
         else
             begin
                 Read_Pointer <= Read_Pointer;
-                Data_Out <= 8'bZ;
+                Data_Out <= 16'bZ;
             end
     end
 
