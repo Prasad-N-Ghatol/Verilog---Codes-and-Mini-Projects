@@ -55,6 +55,8 @@ assign C[0] = (P[0] & Carry_In) + G[0];
 assign C[1] = (P[1] & ((P[0] & Carry_In) + G[0])) + G[1];
 assign C[2] = (P[2] & ((P[1] & ((P[0] & Carry_In) + G[0])) + G[1])) + G[2];
 assign C[3] = (P[3] & ((P[2] & ((P[1] & ((P[0] & Carry_In) + G[0])) + G[1])) + G[2])) + G[3];
+
+
 assign Carry_Out = C[3];
 
 
