@@ -1,0 +1,50 @@
+/*
+SystemVerilog Testbench for the Multiplier - 16-Bit.
+
+
+
+Author : Prasad Narayan Ghatol
+*/
+`timescale 1ns/1ps
+
+
+
+module Multiplier_16_Bit_tb ();
+
+
+
+reg  [15:0] Data_A_In;
+reg  [15:0] Data_B_In;
+wire [31:0] Multiplied_Result_Out;
+
+
+
+// --------------------------------------------------
+// Multiplier - 16-Bit DUT Instantiation
+// --------------------------------------------------
+Multiplier_16_Bit DUT (
+    .Data_A_In(Data_A_In),
+    .Data_B_In(Data_B_In),
+    .Multiplied_Result_Out(Multiplied_Result_Out)
+);
+
+
+
+// --------------------------------------------------
+// Testbench Logic
+// --------------------------------------------------
+initial
+    begin
+        repeat (10)
+            begin
+                Data_A_In = $random;
+                Data_B_In = $random;
+                #10;
+            end
+
+        $stop;
+    end
+
+
+
+endmodule

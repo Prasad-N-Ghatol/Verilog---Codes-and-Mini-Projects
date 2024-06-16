@@ -46,6 +46,7 @@ assign Sub_Products[3] = Data_B_In[3] ? (Data_A_In << 3) : 8'b0;
 assign Addition_0[0] = Sub_Products[0] + Sub_Products[1];
 assign Addition_0[1] = Sub_Products[2] + Sub_Products[3];
 
+
 assign Addition_1 = Addition_0[0] + Addition_0[1];
 
 
