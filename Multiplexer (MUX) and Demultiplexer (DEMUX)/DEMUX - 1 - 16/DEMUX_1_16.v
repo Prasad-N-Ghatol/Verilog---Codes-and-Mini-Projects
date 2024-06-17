@@ -36,62 +36,25 @@ module DEMUX_1_16 (
 
 
 // --------------------------------------------------
-// wires and regs
-// --------------------------------------------------
-wire DEMUX_1_Result;
-wire DEMUX_2_Result;
-
-
-
-// --------------------------------------------------
 // 1:16 DEMUX Logic
 // --------------------------------------------------
-DEMUX_1_2 DEMUX_1 (
-    .Enable_In(Enable_In),
+assign Data_0_Out  = Enable_In ? ((Select_In == 4'd0)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_1_Out  = Enable_In ? ((Select_In == 4'd1)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_2_Out  = Enable_In ? ((Select_In == 4'd2)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_3_Out  = Enable_In ? ((Select_In == 4'd3)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_4_Out  = Enable_In ? ((Select_In == 4'd4)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_5_Out  = Enable_In ? ((Select_In == 4'd5)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_6_Out  = Enable_In ? ((Select_In == 4'd6)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_7_Out  = Enable_In ? ((Select_In == 4'd7)  ? Data_In : 1'b0) : 1'bZ;
 
-    .Data_In(Data_In),
-    
-    .Select_In(Select_In[3]),
-    
-    .Data_0_Out(DEMUX_1_Result),
-    .Data_1_Out(DEMUX_2_Result)
-);
-
-
-DEMUX_1_8 DEMUX_2 (
-    .Enable_In(Enable_In),
-
-    .Data_In(DEMUX_1_Result),
-    
-    .Select_In(Select_In[2:0]),
-    
-    .Data_0_Out(Data_0_Out),
-    .Data_1_Out(Data_1_Out),
-    .Data_2_Out(Data_2_Out),
-    .Data_3_Out(Data_3_Out),
-    .Data_4_Out(Data_4_Out),
-    .Data_5_Out(Data_5_Out),
-    .Data_6_Out(Data_6_Out),
-    .Data_7_Out(Data_7_Out)
-);
-
-
-DEMUX_1_8 DEMUX_3 (
-    .Enable_In(Enable_In),
-
-    .Data_In(DEMUX_2_Result),
-    
-    .Select_In(Select_In[2:0]),
-    
-    .Data_0_Out(Data_8_Out),
-    .Data_1_Out(Data_9_Out),
-    .Data_2_Out(Data_10_Out),
-    .Data_3_Out(Data_11_Out),
-    .Data_4_Out(Data_12_Out),
-    .Data_5_Out(Data_13_Out),
-    .Data_6_Out(Data_14_Out),
-    .Data_7_Out(Data_15_Out)
-);
+assign Data_8_Out  = Enable_In ? ((Select_In == 4'd8)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_9_Out  = Enable_In ? ((Select_In == 4'd9)  ? Data_In : 1'b0) : 1'bZ;
+assign Data_10_Out = Enable_In ? ((Select_In == 4'd10) ? Data_In : 1'b0) : 1'bZ;
+assign Data_11_Out = Enable_In ? ((Select_In == 4'd11) ? Data_In : 1'b0) : 1'bZ;
+assign Data_12_Out = Enable_In ? ((Select_In == 4'd12) ? Data_In : 1'b0) : 1'bZ;
+assign Data_13_Out = Enable_In ? ((Select_In == 4'd13) ? Data_In : 1'b0) : 1'bZ;
+assign Data_14_Out = Enable_In ? ((Select_In == 4'd14) ? Data_In : 1'b0) : 1'bZ;
+assign Data_15_Out = Enable_In ? ((Select_In == 4'd15) ? Data_In : 1'b0) : 1'bZ;
 
 
 

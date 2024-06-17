@@ -30,14 +30,14 @@ module DEMUX_1_8 (
 // --------------------------------------------------
 // 1:8 DEMUX Logic
 // --------------------------------------------------
-assign Data_0_Out = Enable_In ? ((Select_In == 3'h0) ? Data_In : 1'b0) : 1'bZ;
-assign Data_1_Out = Enable_In ? ((Select_In == 3'h1) ? Data_In : 1'b0) : 1'bZ;
-assign Data_2_Out = Enable_In ? ((Select_In == 3'h2) ? Data_In : 1'b0) : 1'bZ;
-assign Data_3_Out = Enable_In ? ((Select_In == 3'h3) ? Data_In : 1'b0) : 1'bZ;
-assign Data_4_Out = Enable_In ? ((Select_In == 3'h4) ? Data_In : 1'b0) : 1'bZ;
-assign Data_5_Out = Enable_In ? ((Select_In == 3'h5) ? Data_In : 1'b0) : 1'bZ;
-assign Data_6_Out = Enable_In ? ((Select_In == 3'h6) ? Data_In : 1'b0) : 1'bZ;
-assign Data_7_Out = Enable_In ? ((Select_In == 3'h7) ? Data_In : 1'b0) : 1'bZ;
+assign Data_0_Out = Enable_In ? ((Select_In == 3'd0) ? Data_In : 1'b0) : 1'bZ;
+assign Data_1_Out = Enable_In ? ((Select_In == 3'd1) ? Data_In : 1'b0) : 1'bZ;
+assign Data_2_Out = Enable_In ? ((Select_In == 3'd2) ? Data_In : 1'b0) : 1'bZ;
+assign Data_3_Out = Enable_In ? ((Select_In == 3'd3) ? Data_In : 1'b0) : 1'bZ;
+assign Data_4_Out = Enable_In ? ((Select_In == 3'd4) ? Data_In : 1'b0) : 1'bZ;
+assign Data_5_Out = Enable_In ? ((Select_In == 3'd5) ? Data_In : 1'b0) : 1'bZ;
+assign Data_6_Out = Enable_In ? ((Select_In == 3'd6) ? Data_In : 1'b0) : 1'bZ;
+assign Data_7_Out = Enable_In ? ((Select_In == 3'd7) ? Data_In : 1'b0) : 1'bZ;
 
 
 

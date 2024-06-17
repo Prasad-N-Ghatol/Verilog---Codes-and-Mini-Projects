@@ -41,20 +41,10 @@ assign MUX_Data_Out = Enable_In ? Multiplexed_Data : 1'bZ;
 always @ (*)
     begin
         case (Select_In)
-            1'h0 :
-                begin 
-                    Multiplexed_Data <= Data_0_In;
-                end
+            1'd0 : Multiplexed_Data <= Data_0_In;
+            1'd1 : Multiplexed_Data <= Data_1_In;
 
-            1'h1 :
-                begin 
-                    Multiplexed_Data <= Data_1_In;
-                end
-
-            default :
-                begin 
-                    Multiplexed_Data <= 1'b0;
-                end
+            default : Multiplexed_Data <= 1'b0;
         endcase
     end
 

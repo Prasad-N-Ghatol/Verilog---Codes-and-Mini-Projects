@@ -26,10 +26,10 @@ module DEMUX_1_4 (
 // --------------------------------------------------
 // 1:4 DEMUX Logic
 // --------------------------------------------------
-assign Data_0_Out = Enable_In ? ((Select_In == 2'h0) ? Data_In : 1'b0) : 1'bZ;
-assign Data_1_Out = Enable_In ? ((Select_In == 2'h1) ? Data_In : 1'b0) : 1'bZ;
-assign Data_2_Out = Enable_In ? ((Select_In == 2'h2) ? Data_In : 1'b0) : 1'bZ;
-assign Data_3_Out = Enable_In ? ((Select_In == 2'h3) ? Data_In : 1'b0) : 1'bZ;
+assign Data_0_Out = Enable_In ? ((Select_In == 2'd0) ? Data_In : 1'b0) : 1'bZ;
+assign Data_1_Out = Enable_In ? ((Select_In == 2'd1) ? Data_In : 1'b0) : 1'bZ;
+assign Data_2_Out = Enable_In ? ((Select_In == 2'd2) ? Data_In : 1'b0) : 1'bZ;
+assign Data_3_Out = Enable_In ? ((Select_In == 2'd3) ? Data_In : 1'b0) : 1'bZ;
 
 
 

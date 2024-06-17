@@ -54,12 +54,7 @@ module MUX_32_1 (
 // --------------------------------------------------
 // wires and regs
 // --------------------------------------------------
-wire MUX_1_Result;
-wire MUX_2_Result;
-wire MUX_3_Result;
-wire MUX_4_Result;
-
-wire Multiplexed_Data;
+reg Multiplexed_Data;
 
 
 
@@ -73,75 +68,48 @@ assign MUX_Data_Out = Enable_In ? Multiplexed_Data : 1'bZ;
 // --------------------------------------------------
 // 32:1 MUX Logic
 // --------------------------------------------------
-MUX_8_1 MUX_1 (
-    .Enable_In(Enable_In),
-    .Select_In(Select_In[2:0]),
-    .Data_0_In(Data_0_In),
-    .Data_1_In(Data_1_In),
-    .Data_2_In(Data_2_In),
-    .Data_3_In(Data_3_In),
-    .Data_4_In(Data_4_In),
-    .Data_5_In(Data_5_In),
-    .Data_6_In(Data_6_In),
-    .Data_7_In(Data_7_In),
-    .MUX_Data_Out(MUX_1_Result)
-);
+always @ (*)
+    begin
+        case (Select_In)
+            5'd0  : Multiplexed_Data <= Data_0_In;
+            5'd1  : Multiplexed_Data <= Data_1_In;
+            5'd2  : Multiplexed_Data <= Data_2_In;
+            5'd3  : Multiplexed_Data <= Data_3_In;
+            5'd4  : Multiplexed_Data <= Data_4_In;
+            5'd5  : Multiplexed_Data <= Data_5_In;
+            5'd6  : Multiplexed_Data <= Data_6_In;
+            5'd7  : Multiplexed_Data <= Data_7_In;
 
+            5'd8  : Multiplexed_Data <= Data_8_In;
+            5'd9  : Multiplexed_Data <= Data_9_In;
+            5'd10 : Multiplexed_Data <= Data_10_In;
+            5'd11 : Multiplexed_Data <= Data_11_In;
+            5'd12 : Multiplexed_Data <= Data_12_In;
+            5'd13 : Multiplexed_Data <= Data_13_In;
+            5'd14 : Multiplexed_Data <= Data_14_In;
+            5'd15 : Multiplexed_Data <= Data_15_In;
 
-MUX_8_1 MUX_2 (
-    .Enable_In(Enable_In),
-    .Select_In(Select_In[2:0]),
-    .Data_0_In(Data_8_In),
-    .Data_1_In(Data_9_In),
-    .Data_2_In(Data_10_In),
-    .Data_3_In(Data_11_In),
-    .Data_4_In(Data_12_In),
-    .Data_5_In(Data_13_In),
-    .Data_6_In(Data_14_In),
-    .Data_7_In(Data_15_In),
-    .MUX_Data_Out(MUX_2_Result)
-);
+            5'd16 : Multiplexed_Data <= Data_16_In;
+            5'd17 : Multiplexed_Data <= Data_17_In;
+            5'd18 : Multiplexed_Data <= Data_18_In;
+            5'd19 : Multiplexed_Data <= Data_19_In;
+            5'd20 : Multiplexed_Data <= Data_20_In;
+            5'd21 : Multiplexed_Data <= Data_21_In;
+            5'd22 : Multiplexed_Data <= Data_22_In;
+            5'd23 : Multiplexed_Data <= Data_23_In;
 
+            5'd24 : Multiplexed_Data <= Data_24_In;
+            5'd25 : Multiplexed_Data <= Data_25_In;
+            5'd26 : Multiplexed_Data <= Data_26_In;
+            5'd27 : Multiplexed_Data <= Data_27_In;
+            5'd28 : Multiplexed_Data <= Data_28_In;
+            5'd29 : Multiplexed_Data <= Data_29_In;
+            5'd30 : Multiplexed_Data <= Data_30_In;
+            5'd31 : Multiplexed_Data <= Data_31_In;
 
-MUX_8_1 MUX_3 (
-    .Enable_In(Enable_In),
-    .Select_In(Select_In[2:0]),
-    .Data_0_In(Data_16_In),
-    .Data_1_In(Data_17_In),
-    .Data_2_In(Data_18_In),
-    .Data_3_In(Data_19_In),
-    .Data_4_In(Data_20_In),
-    .Data_5_In(Data_21_In),
-    .Data_6_In(Data_22_In),
-    .Data_7_In(Data_23_In),
-    .MUX_Data_Out(MUX_3_Result)
-);
-
-
-MUX_8_1 MUX_4 (
-    .Enable_In(Enable_In),
-    .Select_In(Select_In[2:0]),
-    .Data_0_In(Data_24_In),
-    .Data_1_In(Data_25_In),
-    .Data_2_In(Data_26_In),
-    .Data_3_In(Data_27_In),
-    .Data_4_In(Data_28_In),
-    .Data_5_In(Data_29_In),
-    .Data_6_In(Data_30_In),
-    .Data_7_In(Data_31_In),
-    .MUX_Data_Out(MUX_4_Result)
-);
-
-
-MUX_4_1 MUX_5 (
-    .Enable_In(Enable_In),
-    .Select_In(Select_In[4:3]),
-    .Data_0_In(MUX_1_Result),
-    .Data_1_In(MUX_2_Result),
-    .Data_2_In(MUX_3_Result),
-    .Data_3_In(MUX_4_Result),
-    .MUX_Data_Out(Multiplexed_Data)
-);
+            default : Multiplexed_Data <= 1'b0;
+        endcase
+    end
 
 
 

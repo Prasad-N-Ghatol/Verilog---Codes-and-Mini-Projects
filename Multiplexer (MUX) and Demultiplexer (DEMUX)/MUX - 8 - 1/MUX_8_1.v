@@ -47,50 +47,16 @@ assign MUX_Data_Out = Enable_In ? Multiplexed_Data : 1'bZ;
 always @ (*)
     begin
         case (Select_In)
-            3'h0 :
-                begin 
-                    Multiplexed_Data <= Data_0_In;
-                end
+            3'd0 : Multiplexed_Data <= Data_0_In;
+            3'd1 : Multiplexed_Data <= Data_1_In;
+            3'd2 : Multiplexed_Data <= Data_2_In;
+            3'd3 : Multiplexed_Data <= Data_3_In;
+            3'd4 : Multiplexed_Data <= Data_4_In;
+            3'd5 : Multiplexed_Data <= Data_5_In;
+            3'd6 : Multiplexed_Data <= Data_6_In;
+            3'd7 : Multiplexed_Data <= Data_7_In;
 
-            3'h1 :
-                begin 
-                    Multiplexed_Data <= Data_1_In;
-                end
-
-            3'h2 :
-                begin 
-                    Multiplexed_Data <= Data_2_In;
-                end
-
-            3'h3 :
-                begin 
-                    Multiplexed_Data <= Data_3_In;
-                end
-
-            3'h4 :
-                begin 
-                    Multiplexed_Data <= Data_4_In;
-                end
-
-            3'h5 :
-                begin 
-                    Multiplexed_Data <= Data_5_In;
-                end
-
-            3'h6 :
-                begin 
-                    Multiplexed_Data <= Data_6_In;
-                end
-
-            3'h7 :
-                begin 
-                    Multiplexed_Data <= Data_7_In;
-                end
-
-            default :
-                begin 
-                    Multiplexed_Data <= 1'b0;
-                end
+            default : Multiplexed_Data <= 1'b0;
         endcase
     end
 
