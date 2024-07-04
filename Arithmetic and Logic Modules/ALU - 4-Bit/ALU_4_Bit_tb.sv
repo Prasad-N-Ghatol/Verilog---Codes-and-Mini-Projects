@@ -1,9 +1,34 @@
 /*
-SystemVerilog Testbench for the ALU - 4-Bit.
+**************************************************
+            ALU - 4-Bit - Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the 4-Bit ALU.
 
+The supported 16 Operations along with their selection input values are :
+    1) Arithmetical Operations :
+        4'h0 => A
+        4'h1 => B
+        4'h2 => A + B + Cin
+        4'h3 => A - B - Cin
+        4'h4 => B - A - Cin
+        4'h5 => A + 1
+        4'h6 => B + 1
+        4'h7 => A - 1
 
+    2) Logical Operations :
+        4'h8 => A AND B
+        4'h9 => A OR B
+        4'hA => A XOR B
+        4'hB => A NAND B
+        4'hC => A NOR B
+        4'hD => A XNOR B
+        4'hE => NOT A
+        4'hF => NOT B
+
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 
@@ -30,10 +55,12 @@ wire       Carry_Out;
 // --------------------------------------------------
 ALU_4_Bit DUT (
     .Reset_In(Reset_In),
+
     .Data_A_In(Data_A_In),
     .Data_B_In(Data_B_In),
     .Carry_Borrowb_In(Carry_Borrowb_In),
     .Operation_Select_In(Operation_Select_In),
+
     .Result_Out(Result_Out),
     .Carry_Out(Carry_Out)
 );
@@ -45,10 +72,12 @@ ALU_4_Bit DUT (
 // --------------------------------------------------
 initial
     begin
+        // Reset the design
         Reset_In = 1'b1;
         #10;
         Reset_In = 1'b0;
 
+        // Repeat the Test 20 times
         repeat(20)
             begin
                 Data_A_In = $random;
@@ -58,6 +87,7 @@ initial
                 #10;
             end
 
+        // Stop the Test
         $stop;
     end
 

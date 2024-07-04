@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Look Ahead Carry Generator - 16-Bit.
+**************************************************
+        Look Ahead Carry Generator - 16-Bit
+**************************************************
 
+This is a verilog code, to implement a 16-Bit Look Ahead Carry Generator.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

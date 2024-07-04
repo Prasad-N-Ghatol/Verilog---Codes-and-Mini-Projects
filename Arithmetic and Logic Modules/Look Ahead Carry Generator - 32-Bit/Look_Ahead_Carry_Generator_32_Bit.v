@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Look Ahead Carry Generator - 32-Bit.
+**************************************************
+        Look Ahead Carry Generator - 32-Bit
+**************************************************
 
+This is a verilog code, to implement a 32-Bit Look Ahead Carry Generator.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

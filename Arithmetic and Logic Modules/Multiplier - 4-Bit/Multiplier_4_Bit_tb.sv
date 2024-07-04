@@ -1,9 +1,13 @@
 /*
-SystemVerilog Testbench for the Multiplier - 4-Bit.
+**************************************************
+        Multiplier - 4-Bit - Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the 4-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 

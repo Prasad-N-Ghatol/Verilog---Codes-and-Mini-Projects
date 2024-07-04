@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Multiplier - 4-Bit.
+**************************************************
+            Multiplier - 4-Bit
+**************************************************
 
+This is a verilog code, to implement a 4-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

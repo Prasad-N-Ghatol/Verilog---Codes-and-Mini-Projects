@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Multiplier - 32-Bit.
+**************************************************
+            Multiplier - 32-Bit
+**************************************************
 
+This is a verilog code, to implement a 32-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

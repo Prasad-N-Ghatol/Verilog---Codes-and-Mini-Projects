@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Full Adder.
+**************************************************
+                Full Adder
+**************************************************
 
+This is a verilog code, to implement a Full Adder.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

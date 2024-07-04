@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Half Adder.
+**************************************************
+                Half Adder
+**************************************************
 
+This is a verilog code, to implement a Half Adder.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

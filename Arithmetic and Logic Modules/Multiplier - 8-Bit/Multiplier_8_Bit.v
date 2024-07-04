@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Multiplier - 8-Bit.
+**************************************************
+            Multiplier - 8-Bit
+**************************************************
 
+This is a verilog code, to implement a 8-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

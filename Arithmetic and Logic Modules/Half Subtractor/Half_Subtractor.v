@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Half Subtractor.
+**************************************************
+                Half Subtractor
+**************************************************
 
+This is a verilog code, to implement a Half Subtractor.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Multiplier - 16-Bit.
+**************************************************
+            Multiplier - 16-Bit
+**************************************************
 
+This is a verilog code, to implement a 16-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

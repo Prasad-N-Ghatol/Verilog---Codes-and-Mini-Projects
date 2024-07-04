@@ -1,9 +1,13 @@
 /*
-SystemVerilog Testbench for the Look Ahead Carry Generator - 8-Bit.
+**************************************************
+    Look Ahead Carry Generator - 8-Bit - Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the 8-Bit Look Ahead Carry Generator.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 

@@ -1,33 +1,38 @@
 /*
-Verilog Code, to implement a ALU - 4-Bit.
+**************************************************
+                ALU - 4-Bit
+**************************************************
 
+This is a verilog code, to implement a 4-Bit ALU.
 
+This ALU operates on 2 4-Bit Words (Data_A and Data_B) along with a Carry_In,
+and the result is a 4-Bit Word (Result) along with a Carry_Out.
 
-The Operations supported are :
+There are 16 operations available, which can be selected with the help of Operation_Select.
+The supported Operations along with their selection input values are :
+    1) Arithmetical Operations :
+        4'h0 => A
+        4'h1 => B
+        4'h2 => A + B + Cin
+        4'h3 => A - B - Cin
+        4'h4 => B - A - Cin
+        4'h5 => A + 1
+        4'h6 => B + 1
+        4'h7 => A - 1
 
-Arithmetical Operations :
-4'h0 => A
-4'h1 => B
-4'h2 => A + B + Cin
-4'h3 => A - B - Cin
-4'h4 => B - A - Cin
-4'h5 => A + 1
-4'h6 => B + 1
-4'h7 => A - 1
+    2) Logical Operations :
+        4'h8 => A AND B
+        4'h9 => A OR B
+        4'hA => A XOR B
+        4'hB => A NAND B
+        4'hC => A NOR B
+        4'hD => A XNOR B
+        4'hE => NOT A
+        4'hF => NOT B
 
-Logical Operations :
-4'h8 => A AND B
-4'h9 => A OR B
-4'hA => A XOR B
-4'hB => A NAND B
-4'hC => A NOR B
-4'hD => A XNOR B
-4'hE => NOT A
-4'hF => NOT B
-
-
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 
@@ -38,7 +43,7 @@ module ALU_4_Bit (
     input  [3:0] Data_A_In,
     input  [3:0] Data_B_In,
     input        Carry_Borrowb_In,
-    input  [3:0] Operation_Select_In,
+    input  [3:0] Operation_Select_In,   // Select the operation to be performed by the ALU
 
     output [3:0] Result_Out,
     output       Carry_Out

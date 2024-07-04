@@ -1,9 +1,24 @@
 /*
-SystemVerilog Testbench for the Barrel Shifter - 8-Bit.
+**************************************************
+        Barrel Shifter - 8-Bit- Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the 8-Bit Barrel Shifter.
 
+A total of 8 operations are available for this design, and can be selected with the Shifter_Mode_In.
+The available operation, with their selection values are :
+    3'h0 -> LOGICAL_SHIFT_LEFT
+    3'h1 -> LOGICAL_SHIFT_RIGHT
+    3'h2 -> ARITHMETIC_SHIFT_LEFT
+    3'h3 -> ARITHMETIC_SHIFT_RIGHT
+    3'h4 -> ROTATE_LEFT
+    3'h5 -> ROTATE_RIGHT
+    3'h6 -> ROTATE_LEFT_THROUGH_CARRY
+    3'h7 -> ROTATE_RIGHT_THROUGH_CARRY
 
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 
@@ -63,11 +78,13 @@ Barrel_Shifter_8_Bit DUT (
 // --------------------------------------------------
 initial
     begin
+        // Disable and then Enable the Design
         Enable_In = 1'b0;
         #10;
         Enable_In = 1'b1;
 
 
+        // Perform Logical Shift Left operation, and repeat the Test 3 times.
         Shifter_Mode_In = LOGICAL_SHIFT_LEFT;         // 3'h0
         repeat(3)
             begin
@@ -78,6 +95,7 @@ initial
             end
 
 
+        // Perform Logical Shift Right operation, and repeat the Test 3 times.
         Shifter_Mode_In = LOGICAL_SHIFT_RIGHT;        // 3'h1
         repeat(3)
             begin
@@ -88,6 +106,7 @@ initial
             end
 
 
+        // Perform Arithmetic Shift Left operation, and repeat the Test 3 times.
         Shifter_Mode_In = ARITHMETIC_SHIFT_LEFT;      // 3'h2
         repeat(3)
             begin
@@ -98,6 +117,7 @@ initial
             end
 
 
+        // Perform Arithmetic Shift Right operation, and repeat the Test 3 times.
         Shifter_Mode_In = ARITHMETIC_SHIFT_RIGHT;     // 3'h3
         repeat(3)
             begin
@@ -108,6 +128,7 @@ initial
             end
 
 
+        // Perform Rotate Left operation, and repeat the Test 3 times.
         Shifter_Mode_In = ROTATE_LEFT;                // 3'h4
         repeat(3)
             begin
@@ -118,6 +139,7 @@ initial
             end
 
 
+        // Perform Rotate Right operation, and repeat the Test 3 times.
         Shifter_Mode_In = ROTATE_RIGHT;               // 3'h5
         repeat(3)
             begin
@@ -128,6 +150,7 @@ initial
             end
 
 
+        // Perform Rotate Left Through Carry operation, and repeat the Test 3 times.
         Shifter_Mode_In = ROTATE_LEFT_THROUGH_CARRY;  // 3'h6
         repeat(3)
             begin
@@ -138,6 +161,7 @@ initial
             end
 
 
+        // Perform Rotate Right Through Carry operation, and repeat the Test 3 times.
         Shifter_Mode_In = ROTATE_RIGHT_THROUGH_CARRY; // 3'h7
         repeat(3)
             begin
@@ -148,6 +172,7 @@ initial
             end
 
 
+        // Stop the Test
         $stop;
     end
 

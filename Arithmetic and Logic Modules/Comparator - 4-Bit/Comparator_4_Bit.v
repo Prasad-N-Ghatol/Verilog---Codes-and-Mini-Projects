@@ -1,9 +1,18 @@
 /*
-Verilog Code, to implement a Comparator - 4-Bit.
+**************************************************
+                Comparator - 4-Bit
+**************************************************
 
+This is a verilog code, to implement a 4-Bit Comparator.
 
+The comparator compares 2 words Data_A and Data_B, and produces the results :
+A_Less_Than_B = 1'b1, when A is less the B
+A_Equal_To_B = 1'b1, when A is equal to B
+A_Greater_Than_B = 1'b1, when A is greater than B
 
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 
@@ -13,9 +22,10 @@ module Comparator_4_Bit (
 
     input      [3:0] Data_A_In,
     input      [3:0] Data_B_In,
-    output reg       A_Less_Than_B_Out,
-    output reg       A_Equal_To_B_Out,
-    output reg       A_Greater_Than_B_Out
+
+    output reg       A_Less_Than_B_Out,   // A < B
+    output reg       A_Equal_To_B_Out,    // A = B
+    output reg       A_Greater_Than_B_Out // A > B
 );
 
 

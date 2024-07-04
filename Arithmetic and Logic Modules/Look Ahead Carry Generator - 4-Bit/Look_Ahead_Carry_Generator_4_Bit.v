@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Look Ahead Carry Generator - 4-Bit.
+**************************************************
+        Look Ahead Carry Generator - 4-Bit
+**************************************************
 
+This is a verilog code, to implement a 4-Bit Look Ahead Carry Generator.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

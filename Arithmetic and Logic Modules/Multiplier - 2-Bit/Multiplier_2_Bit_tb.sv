@@ -1,9 +1,13 @@
 /*
-SystemVerilog Testbench for the Multiplier - 2-Bit.
+**************************************************
+        Multiplier - 2-Bit - Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the 2-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 

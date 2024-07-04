@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Full Subtractor.
+**************************************************
+                Full Subtractor
+**************************************************
 
+This is a verilog code, to implement a Full Subtractor.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

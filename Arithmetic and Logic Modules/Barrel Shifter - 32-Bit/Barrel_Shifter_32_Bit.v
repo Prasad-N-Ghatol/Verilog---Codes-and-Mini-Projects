@@ -1,24 +1,45 @@
 /*
-Verilog Code, to implement a Barrel Shifter - 32-Bit.
+**************************************************
+            Barrel Shifter - 32-Bit
+**************************************************
 
+This is a verilog code, to implement a 32-Bit Barrel Shifter.
 
+The shifting is performed on the Data_In, and the shifted result is present on the Shifted_Data_Out.
+For the purpose of shifting the data through the Carry, Carry_In is also applied, whose shifted value
+is present at the output Carry_Out.
 
+Shift_Bits_Length_In specifies the number of bits to be shifted.
+
+A total of 8 operations are available for this design, and can be selected with the Shifter_Mode_In.
+The available operation, with their selection values are :
+    3'h0 -> LOGICAL_SHIFT_LEFT
+    3'h1 -> LOGICAL_SHIFT_RIGHT
+    3'h2 -> ARITHMETIC_SHIFT_LEFT
+    3'h3 -> ARITHMETIC_SHIFT_RIGHT
+    3'h4 -> ROTATE_LEFT
+    3'h5 -> ROTATE_RIGHT
+    3'h6 -> ROTATE_LEFT_THROUGH_CARRY
+    3'h7 -> ROTATE_RIGHT_THROUGH_CARRY
+
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 
 
 module Barrel_Shifter_32_Bit (
-    input         Enable_In,
+    input         Enable_In,             // Enable the Barrel Shifter
 
-    input  [2:0]  Shifter_Mode_In,
+    input  [2:0]  Shifter_Mode_In,       // Select the operation to be performed
 
-    input  [4:0]  Shift_Bits_Length_In,
-    input         Carry_In,
-    input  [31:0] Data_In,
+    input  [4:0]  Shift_Bits_Length_In,  // Specify the number of bits to be shifted
+    input         Carry_In,              // For the purpose of Shift through Carry
+    input  [31:0] Data_In,               // Data to be shifted
 
-    output [31:0] Shifted_Data_Out,
-    output        Carry_Out
+    output [31:0] Shifted_Data_Out,      // Shifted data out
+    output        Carry_Out              // Shifted Carry out
 );
 
 

@@ -1,9 +1,13 @@
 /*
-Verilog Code, to implement a Multiplier - 2-Bit.
+**************************************************
+            Multiplier - 2-Bit
+**************************************************
 
+This is a verilog code, to implement a 2-Bit Multiplier.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 
 

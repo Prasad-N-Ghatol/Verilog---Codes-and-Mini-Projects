@@ -1,9 +1,13 @@
 /*
-SystemVerilog Testbench for the Half Adder.
+**************************************************
+            Half Adder - Testbench
+**************************************************
 
+This is a SystemVerilog Testbench code, for the Half Adder.
 
-
+--------------------------------------------------
 Author : Prasad Narayan Ghatol
+--------------------------------------------------
 */
 `timescale 1ns/1ps
 
