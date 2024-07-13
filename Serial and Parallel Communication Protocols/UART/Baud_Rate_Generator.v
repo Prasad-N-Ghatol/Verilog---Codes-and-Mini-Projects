@@ -125,7 +125,7 @@ always @ (negedge Clk_In or posedge Reset_In)
             end
         else
             begin
-                if (RX_Counter == BAUD_COUNTER_VALUE)
+                if (RX_Counter >= BAUD_COUNTER_VALUE)
                     begin
                         Baud_Clk <= Baud_Clk + 1'b1;
                         RX_Counter <= 32'b0;

@@ -123,7 +123,7 @@ always @ (negedge Clk_In or posedge Reset_In or posedge Speed_Changed)
             end
         else
             begin
-                if (I2C_Counter == I2C_Half_Period_Value)
+                if (I2C_Counter >= I2C_Half_Period_Value)
                     begin
                         I2C_Counter <= 10'b0;
                         I2C_Clock_Out <= ~I2C_Clock_Out;
