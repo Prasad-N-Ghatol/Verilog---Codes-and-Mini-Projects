@@ -31,25 +31,27 @@ Author : Prasad Narayan Ghatol
 
 module UART_Device(
     // UART Lines for communication
-    output           UART_TX,
-    input            UART_RX,
+    output       UART_TX,
+    input        UART_RX,
 
     // Design and UART Control Signals
-    input            Reset_In,
+    input        Reset_In,
 
-    input            TX_UART_Clk_In,            // TX Clock for the UART Data Transfer
-    input            RX_UART_Clk_In,            // RX Clock for the UART Data Transfer
+    input        TX_UART_Clk_In,            // TX Clock for the UART Data Transfer
+    input        RX_UART_Clk_In,            // RX Clock for the UART Data Transfer
 
-    input  [2:0]     UART_Num_Data_Bits_In,     // Length of the data in bits
-    input            UART_Parity_Enable_In,     // Send the Parity bit or not (0 = Disable , 1 = Enable)
-    input            UART_Even_Oddb_Parity_In,  // Send Even or Odd Parity (0 = Odd Parity , 1 = Even Parity)
-    input            UART_Num_Stop_Bits_In,     // Number of Stop Bits to Send (0 = 1 Stop bit , 1 = 2 Stop bits)
+    input  [2:0] UART_Num_Data_Bits_In,     // Length of the data in bits
+    input        UART_Parity_Enable_In,     // Send the Parity bit or not (0 = Disable , 1 = Enable)
+    input        UART_Even_Oddb_Parity_In,  // Send Even or Odd Parity (0 = Odd Parity , 1 = Even Parity)
+    input        UART_Num_Stop_Bits_In,     // Number of Stop Bits to Send (0 = 1 Stop bit , 1 = 2 Stop bits)
 
     // Device Signals
-    input            Start_Signal_In,           // Signal to Start the Data Transfer
-    input  [8:0]     Data_In,                   // Data to be sent on the TX
-    output [8:0]     Data_Out,                  // Data Received from RX
-    output           Data_Read_Enable_Out       // Enable Signal to read the Data on Data_Out
+    input        Start_Signal_In,           // Signal to Start the Data Transfer
+    input  [8:0] Data_In,                   // Data to be sent on the TX
+    output [8:0] Data_Out,                  // Data Received from RX
+    output       Data_Read_Enable_Out,      // Enable Signal to read the Data on Data_Out
+    output       TX_Busy_Indicator,        // Indicator to specify, if the TX is in progress or not
+    output       RX_Busy_Indicator         // Indicator to specify, if the RX is in progress or not
 );
 
 
@@ -115,6 +117,9 @@ assign UART_RX_Data = UART_RX;
 assign Data_Out = RX_Data_Send_Enable ? SIPO_RX_Data : 9'bZ;
 
 assign Data_Read_Enable_Out = RX_Data_Send_Enable;
+
+assign TX_Busy_Indicator = (TX_State == S_IDLE) ? (1'b0 || Start_Signal_In) : 1'b1;
+assign RX_Busy_Indicator = (RX_State == S_IDLE) ? 1'b0 : 1'b1;
 
 
 

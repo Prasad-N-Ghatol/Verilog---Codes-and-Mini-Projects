@@ -51,12 +51,16 @@ module UART
     input  [8:0] Device_0_Data_In,              // Data to be sent on the TX
     output [8:0] Device_0_Data_Out,             // Data Received from RX
     output       Device_0_Data_Read_Enable_Out, // Enable Signal to read the Data on Data_Out
+    output       Device_0_TX_Busy_Indicator,    // Indicator to specify, if the TX is in progress or not
+    output       Device_0_RX_Busy_Indicator,    // Indicator to specify, if the RX is in progress or not
 
     // Device 1 Signals
     input        Device_1_Start_Signal_In,      // Signal to Start the Data Transfer
     input  [8:0] Device_1_Data_In,              // Data to be sent on the TX
     output [8:0] Device_1_Data_Out,             // Data Received from RX
-    output       Device_1_Data_Read_Enable_Out  // Enable Signal to read the Data on Data_Out
+    output       Device_1_Data_Read_Enable_Out, // Enable Signal to read the Data on Data_Out
+    output       Device_1_TX_Busy_Indicator,    // Indicator to specify, if the TX is in progress or not
+    output       Device_1_RX_Busy_Indicator     // Indicator to specify, if the RX is in progress or not
 );
 
 
@@ -94,7 +98,10 @@ UART_Device Device_0 (
     .Data_Read_Enable_Out(Device_0_Data_Read_Enable_Out),
 
     .TX_UART_Clk_In(TX_UART_Clk_Out),
-    .RX_UART_Clk_In(RX_UART_Clk_Out)
+    .RX_UART_Clk_In(RX_UART_Clk_Out),
+
+    .TX_Busy_Indicator(Device_0_TX_Busy_Indicator),
+    .RX_Busy_Indicator(Device_0_RX_Busy_Indicator)
 );
 
 
@@ -115,7 +122,10 @@ UART_Device Device_1 (
     .Data_Read_Enable_Out(Device_1_Data_Read_Enable_Out),
 
     .TX_UART_Clk_In(TX_UART_Clk_Out),
-    .RX_UART_Clk_In(RX_UART_Clk_Out)
+    .RX_UART_Clk_In(RX_UART_Clk_Out),
+
+    .TX_Busy_Indicator(Device_1_TX_Busy_Indicator),
+    .RX_Busy_Indicator(Device_1_RX_Busy_Indicator)
 );
 
 

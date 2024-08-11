@@ -37,11 +37,15 @@ reg        Device_0_Start_Signal_In;
 reg  [8:0] Device_0_Data_In;
 wire [8:0] Device_0_Data_Out;
 wire       Device_0_Data_Read_Enable_Out;
+wire       Device_0_TX_Busy_Indicator;
+wire       Device_0_RX_Busy_Indicator;
 
 reg        Device_1_Start_Signal_In;
 reg  [8:0] Device_1_Data_In;
 wire [8:0] Device_1_Data_Out;
 wire       Device_1_Data_Read_Enable_Out;
+wire       Device_1_TX_Busy_Indicator;
+wire       Device_1_RX_Busy_Indicator;
 
 
 
@@ -69,11 +73,15 @@ UART #(.SYS_CLOCK(100_000_000)) DUT (
     .Device_0_Data_In(Device_0_Data_In),
     .Device_0_Data_Out(Device_0_Data_Out),
     .Device_0_Data_Read_Enable_Out(Device_0_Data_Read_Enable_Out),
+    .Device_0_TX_Busy_Indicator(Device_0_TX_Busy_Indicator),
+    .Device_0_RX_Busy_Indicator(Device_0_RX_Busy_Indicator),
 
     .Device_1_Start_Signal_In(Device_1_Start_Signal_In),
     .Device_1_Data_In(Device_1_Data_In),
     .Device_1_Data_Out(Device_1_Data_Out),
-    .Device_1_Data_Read_Enable_Out(Device_1_Data_Read_Enable_Out)
+    .Device_1_Data_Read_Enable_Out(Device_1_Data_Read_Enable_Out),
+    .Device_1_TX_Busy_Indicator(Device_1_TX_Busy_Indicator),
+    .Device_1_RX_Busy_Indicator(Device_1_RX_Busy_Indicator)
 );
 
 

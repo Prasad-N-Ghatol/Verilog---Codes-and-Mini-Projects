@@ -36,11 +36,10 @@ module Baud_Rate_Generator
 // --------------------------------------------------
 // wires and regs
 // --------------------------------------------------
-reg  [31:0] Baud_Rate;
-wire [31:0] BAUD_COUNTER_VALUE;
+reg [8:0] Baud_Counter_Value;
 
-reg  [31:0] RX_Counter;
-reg  [3:0]  TX_Count_Divider;
+reg [8:0] RX_Counter;
+reg [3:0] TX_Count_Divider;
 
 reg Baud_Clk;
 
@@ -54,31 +53,31 @@ always @ (UART_Baud_Rate_Mode_In)
         case (UART_Baud_Rate_Mode_In)
             3'b000 : // Baud Rate = 4800
                 begin
-                    Baud_Rate <= 32'd4800;
+                    Baud_Counter_Value <= 9'd325;
                 end
             3'b001 : // Baud Rate = 9600
                 begin
-                    Baud_Rate <= 32'd9600;
+                    Baud_Counter_Value <= 9'd162;
                 end
             3'b010 : // Baud Rate = 19200
                 begin
-                    Baud_Rate <= 32'd19200;
+                    Baud_Counter_Value <= 9'd81;
                 end
             3'b011 : // Baud Rate = 38400
                 begin
-                    Baud_Rate <= 32'd38400;
+                    Baud_Counter_Value <= 9'd40;
                 end
             3'b100 : // Baud Rate = 57600
                 begin
-                    Baud_Rate <= 32'd57600;
+                    Baud_Counter_Value <= 9'd27;
                 end
             3'b101 : // Baud Rate = 115200
                 begin
-                    Baud_Rate <= 32'd115200;
+                    Baud_Counter_Value <= 9'd13;
                 end
             default : // Baud Rate = 115200
                 begin
-                    Baud_Rate <= 32'd115200;
+                    Baud_Counter_Value <= 9'd13;
                 end
         endcase
     end
@@ -88,8 +87,6 @@ always @ (UART_Baud_Rate_Mode_In)
 // --------------------------------------------------
 // Assignment Statements
 // --------------------------------------------------
-assign BAUD_COUNTER_VALUE = SYS_CLOCK / (2 * 16 * Baud_Rate);
-
 assign TX_UART_Clk_Out = TX_Count_Divider[3];
 assign RX_UART_Clk_Out = Baud_Clk;
 
@@ -120,15 +117,15 @@ always @ (negedge Clk_In or posedge Reset_In)
     begin
         if (Reset_In)
             begin
-                RX_Counter <= 32'b0;
+                RX_Counter <= 9'b0;
                 Baud_Clk <= 1'b0;
             end
         else
             begin
-                if (RX_Counter >= BAUD_COUNTER_VALUE)
+                if (RX_Counter >= Baud_Counter_Value)
                     begin
                         Baud_Clk <= Baud_Clk + 1'b1;
-                        RX_Counter <= 32'b0;
+                        RX_Counter <= 9'b0;
                     end
                 else
                     begin
